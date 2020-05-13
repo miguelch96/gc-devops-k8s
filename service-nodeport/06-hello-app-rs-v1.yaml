@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hello-v1-rs
+  labels:
+    app: hello-v1-rs
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: hello-v1-rs
+  template:
+    metadata:
+      labels:
+        app: hello-v1-rs
+    spec:
+      containers:
+      - name: hello
+        image: gcr.io/google-samples/hello-app:2.0
+        imagePullPolicy: Always        
+        ports:
+        - containerPort: 8080
