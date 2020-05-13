@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gc-deployment
+  labels:
+    app: gcapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: gcapp
+  template:
+    metadata:
+      labels:
+        app: gcapp
+    spec:
+      containers:
+      - name: gcapp
+        image: miguelch96/gchelloapp:2.0
+        ports:
+        - containerPort: 80
