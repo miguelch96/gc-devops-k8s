@@ -5,9 +5,13 @@ metadata:
   labels:
     app: hello-v1
 spec:
+  type: ClusterIP
   selector:
     app: hello-v1
   ports:
   - protocol: TCP
-    port: 8080
+    port: 80
     targetPort: 8080
+
+
+    
